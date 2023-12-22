@@ -1,16 +1,9 @@
-import { useState, useEffect } from 'react'
+
 import './App.css'
+import { useFeching } from './useFetching'
 
 function App() {
-  const [data, setData] = useState(null)
-
-  useEffect( ()=> {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(users => setData(users))
-
-  },[])
-
+  const { data } = useFeching('https://jsonplaceholder.typicode.com/users')  
   return (
     <div className='App'>
       <h1>Feching como Pro</h1>
