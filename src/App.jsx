@@ -3,10 +3,11 @@ import './App.css'
 import { useFeching } from './useFetching'
 
 function App() {
-  const { data, loading, error } = useFeching('https://jsonplaceholder.typicode.com/users')  
+  const { data, loading, error, handleCancelRequest } = useFeching('https://jsonplaceholder.typicode.com/users')  
   return (
     <div className='App'>
       <h1>Feching como Pro</h1>
+      <button onClick={handleCancelRequest}>Cancelar</button>
       <div className='card'>
       <ul>
         {error && <li>Error: {error}</li>}
